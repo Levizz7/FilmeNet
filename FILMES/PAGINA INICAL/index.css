@@ -29,12 +29,11 @@ section{
     justify-content: space-between;
     overflow: hidden;
     height: 100vh;
-    background-image: url(../IMGS/Netflix-Background-1024x576.jpg);
+    background-image: url(../IMGS/Design\ sem\ nome\ \(1\).png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
     background-image: 10%;
-
 }
 
 .circle{
@@ -64,7 +63,6 @@ header{
     margin-top: -6px;
     background-color: #e51e2a;
     width: 6rem;
-
 }
 
 
