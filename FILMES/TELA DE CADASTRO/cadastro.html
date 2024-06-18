@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmeNet &#8226; Login</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <script src="cadastro.js"></script>
+    <link rel="shortcut icon" href="../IMGS/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="tela-login">
+        <div class="logo"><span id="branco">FILME</span>NET</div>
+        <div class="campo-login">
+            <span id="text-title">Seja bem-vindo!</span>
+            <span id="text-span">Por favor, insira seus dados nos campos abaixo.</span>
+        </div>
+
+        <form action="#" method="post">
+            <div class="inputs-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="seuemail@gmail.com">
+
+                <label for="nova-senha">Criar senha:</label>
+                <input type="password" name="nova-senha" id="nova-senha" placeholder="Crie uma senha">
+
+                <span id="text-senha">Lembrar minha senha <input type="checkbox" name="lembrar-senha" id="lembrar-senha"></span>
+            </div>
+        </form>
+
+        <footer class="footer-login">
+            <button id="btn-login" onclick="entrar()">Entrar</button>
+        </footer>
+    </div>
+</body>
+</html>
