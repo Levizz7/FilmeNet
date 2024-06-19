@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmeNet &#8226; Login</title>
     <link rel="stylesheet" href="cadastro.css">
-    <script src="cadastro.js"></script>
     <link rel="shortcut icon" href="../IMGS/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: #D82B0D;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    
     <div class="tela-login">
         <div class="logo"><span id="branco">FILME</span>NET</div>
         <div class="campo-login">
@@ -17,16 +25,19 @@
             <span id="text-span">Por favor, insira seus dados nos campos abaixo.</span>
         </div>
 
-        <form action="#" method="post">
+        <form action="#" method="post" onsubmit="return false;" id="form">
             <div class="inputs-group">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+                <span id="nomeRequired" class="error-message"><i class="fa-solid fa-circle-exclamation"></i> Obrigatório</span>
 
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="seuemail@gmail.com">
+                <span id="emailRequired" class="error-message"><i class="fa-solid fa-circle-exclamation"></i> Email inválido</span>
 
                 <label for="nova-senha">Criar senha:</label>
                 <input type="password" name="nova-senha" id="nova-senha" placeholder="Crie uma senha">
+                <span id="senhaRequired" class="error-message"><i class="fa-solid fa-circle-exclamation"></i> Senha deve ter pelo menos 4 caracteres</span>
 
                 <span id="text-senha">Lembrar minha senha <input type="checkbox" name="lembrar-senha" id="lembrar-senha"></span>
             </div>
@@ -36,5 +47,52 @@
             <button id="btn-login" onclick="entrar()">Entrar</button>
         </footer>
     </div>
+
+    <script>
+        function entrar() {
+            // Obtém os elementos do formulário
+            var nome = document.getElementById('nome');
+            var email = document.getElementById('email');
+            var senha = document.getElementById('nova-senha');
+            var nomeRequired = document.getElementById('nomeRequired');
+            var emailRequired = document.getElementById('emailRequired');
+            var senhaRequired = document.getElementById('senhaRequired');
+
+            // Limpa os erros anteriores
+            nome.classList.remove('error');
+            email.classList.remove('error');
+            senha.classList.remove('error');
+            nomeRequired.style.display = 'none';
+            emailRequired.style.display = 'none';
+            senhaRequired.style.display = 'none';
+
+            // Valida o nome
+            var nomeValido = nome.value.trim() !== "";
+            if (!nomeValido) {
+                nome.classList.add('error');
+                nomeRequired.style.display = 'inline';
+            }
+
+            // Valida o email
+            var emailValido = email.value.includes('@');
+            if (!emailValido) {
+                email.classList.add('error');
+                emailRequired.style.display = 'inline';
+            }
+
+            // Valida a senha
+            var senhaValida = senha.value.length >= 4;
+            if (!senhaValida) {
+                senha.classList.add('error');
+                senhaRequired.style.display = 'inline';
+            }
+
+            // Se todos os campos são válidos, o formulário pode ser enviado
+            if (nomeValido && emailValido && senhaValida) {
+                console.log('Formulário pode ser enviado');
+                // Exemplo: você pode enviar o formulário usando AJAX aqui, se necessário
+            }
+        }
+    </script>
 </body>
 </html>

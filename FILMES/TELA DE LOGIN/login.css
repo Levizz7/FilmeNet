@@ -52,10 +52,6 @@ label{
     color: white;
 }
 
-#required{
-    color: #D82B0D;
-}
-
 #email::placeholder,
 #senha::placeholder{
     color: #ccc;
